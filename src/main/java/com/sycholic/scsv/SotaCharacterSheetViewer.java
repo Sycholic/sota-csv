@@ -117,6 +117,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedHashSet;
+import javax.swing.JCheckBoxMenuItem;
 
 /**
  *
@@ -152,6 +153,7 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuOpen = new javax.swing.JMenuItem();
         jMenuSave = new javax.swing.JMenuItem();
+        jMenuImport = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jCheckBoxMenuItemAoT = new javax.swing.JCheckBoxMenuItem();
 
@@ -227,13 +229,36 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMenuOpen.setText("Open");
+        jMenuOpen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuOpenActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuOpen);
 
         jMenuSave.setText("Save");
+        jMenuSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSaveActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuSave);
+
+        jMenuImport.setText("Import (WIP)");
+        jMenuImport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuImportActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuImport);
         jMenu1.add(jSeparator1);
 
         jCheckBoxMenuItemAoT.setText("Always on Top");
+        jCheckBoxMenuItemAoT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItemAoTActionPerformed(evt);
+            }
+        });
         jMenu1.add(jCheckBoxMenuItemAoT);
 
         jMenuBar1.add(jMenu1);
@@ -255,6 +280,43 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Menu Item Checkbox trigger, for Always on Top.  
+     * Sets AlwaysOnTop() to match the GUI MenuItem's display logic
+     * 
+     * @param evt 
+     */
+    private void jCheckBoxMenuItemAoTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAoTActionPerformed
+        // Always on Top checkbox toggled event
+        /*
+        if (cbLog.isSelected()) {
+            this.setAlwaysOnTop(true);
+        } else {
+            this.setAlwaysOnTop(false);
+        }
+        My original code for the event which I refined to...
+        
+        JCheckBoxMenuItem cbLog = (JCheckBoxMenuItem) evt.getSource();
+        this.setAlwaysOnTop(cbLog.isSelected());
+        
+        which I refined to even more removing a useless variable assignment...
+        fuck yeah me! */
+        
+        this.setAlwaysOnTop(((JCheckBoxMenuItem) evt.getSource()).isSelected());
+    }//GEN-LAST:event_jCheckBoxMenuItemAoTActionPerformed
+
+    private void jMenuOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuOpenActionPerformed
+        // TODO add open file menu selected handling code here:
+    }//GEN-LAST:event_jMenuOpenActionPerformed
+
+    private void jMenuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSaveActionPerformed
+        // TODO add save file menu selected handling code here:
+    }//GEN-LAST:event_jMenuSaveActionPerformed
+
+    private void jMenuImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportActionPerformed
+        // TODO add import file menu selected handling code here:
+    }//GEN-LAST:event_jMenuImportActionPerformed
+
+    /**
      * @param args the command line arguments
      * @throws java.io.IOException
      */
@@ -262,9 +324,9 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
         // create hashsets to have a ordered Sets as skill to value is always 1:1
         LinkedHashSet<String> lhsCharStatNames = new LinkedHashSet<>();
         LinkedHashSet<String> lhsCharStatValues = new LinkedHashSet<>();
-        
+
         readSheetConfig(); //Master file for stats might not be needed...
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -295,6 +357,7 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemAoT;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuImport;
     private javax.swing.JMenuItem jMenuOpen;
     private javax.swing.JMenuItem jMenuSave;
     private javax.swing.JPanel jPanel1;
