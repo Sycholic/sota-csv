@@ -286,7 +286,6 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
      * @param evt 
      */
     private void jCheckBoxMenuItemAoTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemAoTActionPerformed
-        // Always on Top checkbox toggled event
         /*
         if (cbLog.isSelected()) {
             this.setAlwaysOnTop(true);
@@ -314,6 +313,8 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
 
     private void jMenuImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportActionPerformed
         // TODO add import file menu selected handling code here:
+        // Make cfg yml for length, first and last and list of stats then it can be changed easy and
+        // then parsing is easier as well for error control etc etc
     }//GEN-LAST:event_jMenuImportActionPerformed
 
     /**
@@ -370,7 +371,7 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private static void readSheetConfig() throws IOException {
-        FileInputStream fis = new FileInputStream("src/main/resources/sotasheetname.cfg");
+        FileInputStream fis = new FileInputStream("sotasheetname.cfg");
 
         try ( //Construct BufferedReader from InputStreamReader
                 BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
