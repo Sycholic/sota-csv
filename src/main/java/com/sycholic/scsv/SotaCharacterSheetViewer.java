@@ -115,6 +115,7 @@ package com.sycholic.scsv;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashSet;
 import javax.swing.JCheckBoxMenuItem;
@@ -371,8 +372,8 @@ public class SotaCharacterSheetViewer extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private static void readSheetConfig() throws IOException {
-        FileInputStream fis = new FileInputStream("sotasheetname.cfg");
-
+        //FileInputStream fis = new FileInputStream("src/main/java/resources/sotasheetname.cfg");
+        InputStream fis = SotaCharacterSheetViewer.class.getClassLoader().getResourceAsStream("sotasheetname.cfg");
         try ( //Construct BufferedReader from InputStreamReader
                 BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
             String line = null;
